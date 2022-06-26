@@ -2,7 +2,7 @@
 	
 	// task_1
 	print 'How are you?'."</br>";
-	// print 'I'm fine.';
+	print 'I\'m fine.'."</br>";
 	print "I'm fine."."</br>";
 
 
@@ -72,18 +72,60 @@
 	 		 	];
 
 	 		$reverseSorted = arsort($cityArr);
+
+
+	 		$children = [
+	 			"Tbilisi" => 10985,
+	 			"Rustavi" => 59999,
+	 			"Kutaisi" => 4005,
+	 			"Batumi" => 7210,
+	 			"Telavi" => 5789
+	 		];
 	 		
-	 		$cityArr['Tbilisi'] += 10985;
-	 		$cityArr['Rustavi'] += 59999;
-	 		$cityArr['Kutaisi'] += 4005;
-	 		$cityArr['Batumi'] += 7210;
-	 		$cityArr['Telavi'] += 5789;
+	 		// $cityArr['Tbilisi'] += 10985;
+	 		// $cityArr['Rustavi'] += 59999;
+	 		// $cityArr['Kutaisi'] += 4005;
+	 		// $cityArr['Batumi'] += 7210;
+	 		// $cityArr['Telavi'] += 5789;
  
 	 		foreach ($cityArr as $city => $population) {
+
+	 			$population += $children[$city];
 
 	 			echo "<tr>
 	 					<td>$city</td>
 	 					<td>$population</td>
+	 				  </tr>";
+	 		}
+
+	 	 ?>
+ 
+ 	</table>
+
+ 	<table style="width:100%">
+ 	  <tr>
+ 	    <th>City</th>
+ 	    <th>Population</th>
+ 	  </tr>
+
+	 	<?php 
+
+	 		$cityArr = [
+	 				"Tbilisi" => ["total" => 2000000, "children" => 10985],
+	 				"Rustavi" => ["total" => 1000000, "children" => 59999],
+	 				"Kutaisi" => ["total" => 999000, "children" => 4005],
+	 				"Batumi" => ["total" => 1400000, "children" => 7210],
+	 				"Telavi" => ["total" => 750000, "children" => 5789]
+	 		 	];
+ 
+	 		foreach ($cityArr as $city => $population) {
+
+	 			$total = $population['total'];
+	 			$children = $population['children'];
+	 			
+	 			echo "<tr>
+	 					<td>$city</td>
+	 					<td>total = $total, children = $children</td>
 	 				  </tr>";
 	 		}
 
